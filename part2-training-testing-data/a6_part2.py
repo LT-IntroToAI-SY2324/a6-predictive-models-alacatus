@@ -13,8 +13,9 @@ x = data["Age"].values
 y = data["Blood Pressure"].values
 
 # Create your training and testing datasets:
-xtrain, xtest, ytrain, ytest = train_test_split(x,y, test_size= .25)
-
+xtrain, xtest, ytrain, ytest = train_test_split(x,y, test_size= .2)
+#^^^ using too mushc of data with small data set results in overfitting(random r^2 vals)
+#^^^since the model is too...
 # reshape to turn the x values into 2D arrays:
 xtrain = xtrain.reshape(-1,1)
 
@@ -52,3 +53,20 @@ for index in range(len(xtest)):
 '''
 **********CREATE A VISUAL OF THE RESULTS**********
 '''
+
+#sets the size of the graph
+plt.figure(figsize=(5,4))
+
+#creates a scatter plot and labels the axes
+plt.scatter(xtrain,ytrain, c="purple", label="Training Data")
+plt.scatter(xtest, ytest, c="blue", label="Testing Data")
+
+plt.scatter(xtest, predict, c="red", label="Predictions")
+
+plt.xlabel("Temperature ºF")
+plt.ylabel("Chirps per Minute")
+plt.title("Cricket Chirps by Temperature")
+plt.plot(x, coef*x + intercept, c="r", label="Line of Best Fit")
+
+plt.legend()
+plt.show()
