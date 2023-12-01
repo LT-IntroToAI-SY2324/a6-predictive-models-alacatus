@@ -14,7 +14,7 @@ y = data["Blood Pressure"].values
 
 # Create your training and testing datasets:
 xtrain, xtest, ytrain, ytest = train_test_split(x,y, test_size= .2)
-#^^^ using too mushc of data with small data set results in overfitting(random r^2 vals)
+#^^^ using too much of data with small data set results in overfitting(random r^2 vals)
 #^^^since the model is too...
 # reshape to turn the x values into 2D arrays:
 xtrain = xtrain.reshape(-1,1)
@@ -63,9 +63,9 @@ plt.scatter(xtest, ytest, c="blue", label="Testing Data")
 
 plt.scatter(xtest, predict, c="red", label="Predictions")
 
-plt.xlabel("Temperature ºF")
-plt.ylabel("Chirps per Minute")
-plt.title("Cricket Chirps by Temperature")
+plt.xlabel("Age")
+plt.ylabel("Blood Pressure")
+plt.title("Blood pressure by Age")
 plt.plot(x, coef*x + intercept, c="r", label="Line of Best Fit")
 
 plt.legend()
