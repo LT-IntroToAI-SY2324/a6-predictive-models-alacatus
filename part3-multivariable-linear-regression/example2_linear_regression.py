@@ -46,8 +46,8 @@ print(predict)
 
 # compare the actual and predicted values
 print("\nTesting Multivariable Model with Testing Data:")
-for index in range(len(xtest)):
+for index in range(len(xtest)+2):
     actual = round(ytest[index],2) # gets the actual y value from the ytest dataset
     predicted_y = predict[index] # gets the predicted y value from the predict variable
     x_coord = np.around(xtest[index],2) # gets the x value from the xtest dataset
-    print(f"Adult Population: {x_coord[0]} Annual Percipitation: {x_coord[1]} Winter Severity: {x_coord[2]} Actual: {actual} Predicted: {predicted_y}")
+    print(f"Fawn: {x_coord[0]} Adult Population: {x_coord[1]} Annual Percipitation: {x_coord[2]} Winter Severity: {x_coord[3]} Actual: {actual} Predicted: {predicted_y}")

@@ -34,6 +34,11 @@ for index in range(len(xtest)):
     predicted_y = predict[index] # gets the predicted y value from the predict variable
     x_coord = xtest[index] # gets the x value from the xtest dataset
     #___change the headers and understand how this works 
-    print(f"Adult Population: {x_coord[0]} Annual Percipitation: {x_coord[1]} Winter Severity: {x_coord[2]} Actual: {actual} Predicted: {predicted_y}")
+    print(f"miles(000): {x_coord[0]} age: {x_coord[1]} Actual: {actual} Predicted: {predicted_y}")
+
+#figure out how to print actual
+print(f"Prediction when miles is 89k znd age is 10: {modl.predict([[89,10]])} actual: {ytest[]}")
+print(f"Prediction when miles is 150k and age is 20: {modl.predict([[150,20]])} actual: {ytest[150,20]}")
+
 print("***************")
 print("Testing Results")
