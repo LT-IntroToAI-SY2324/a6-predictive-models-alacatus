@@ -37,8 +37,8 @@ for index in range(len(xtest)):
     print(f"miles(000): {x_coord[0]} age: {x_coord[1]} Actual: {actual} Predicted: {predicted_y}")
 
 #figure out how to print actual
-print(f"Prediction when miles is 89k znd age is 10: {modl.predict([[89,10]])} actual: {ytest[]}")
-print(f"Prediction when miles is 150k and age is 20: {modl.predict([[150,20]])} actual: {ytest[150,20]}")
+print(f"Prediction when miles is 89k znd age is 10: {modl.predict([[89,10]])}")
+print(f"Prediction when miles is 150k and age is 20: {modl.predict([[150,20]])}")
 
 print("***************")
 print("Testing Results")
