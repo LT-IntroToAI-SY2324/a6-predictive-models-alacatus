@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+data = pd.read_csv("final-project/real_estate_data.csv")
+data['Residential Type'].replace(['Nan','Condo', 'Single Family','Two Family', 'Three Family', 'Four Family'],[0,1,2,3,4,5],inplace=True)
+data['Property Type'].replace(['Commercial','Residential', 'Vacant Land','Apartments','Industrial','Public Utility'],[0,1,2,3,4,5],inplace=True)
+
+
+x = data[["List Year", "Assessed Value", "Property Type", "Residential Type"]].values
+y = data[["Sale Amount"]].values 
+scalar = StandardScaler().fit(x)
+
+x = scalar.transform(x)
+
+x_train, x_test, y_train, y_test = train_test_split(x,y)
+
+modl = LinearRegression().fit(x_train,y_train)
+
+coef = np.around(modl.coef_, 2)
+intercept = round(float(modl.intercept_),2)
+r_squared = round(modl.score(x,y),2)
+
+print("Model's Linear Equation: y=",coef, "x+", intercept)
+print("R Squared value:", r_squared)
+
+
+predict = modl.predict(x_test)
+predict = np.around(predict, 2)
+
+for index in range(len(x_test)):
+    actual = y_test[index] 
+    predicted_y = predict[index] 
+    x_coord = x_test[index] 
+    print(f"List Year: {x_coord[0]} Assessed Value: {x_coord[1]} Property Type: {x_coord[2]} Residential Type: {x_coord[3]} Actual: {actual} Predicted: {predicted_y}")
+    if(index > 100):
+        break

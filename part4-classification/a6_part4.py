@@ -45,8 +45,7 @@ for index in range(len(x_test)):
         actual = "Purchased"
     else:
         actual = "No result"
-    print("miles(000):" + x_coord[0] + " Predicted status: " + y_pred + " Actual status: " + actual)
-    print("")
+    print(" Predicted status: " + y_pred + " Actual status: " + actual)
 # Step 8: Print out the actual ytest values and predicted y values
 # based on the xtest data
 ###^^^ add the x vals to print
