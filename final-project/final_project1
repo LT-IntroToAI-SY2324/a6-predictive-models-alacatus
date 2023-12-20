@@ -7,8 +7,7 @@ from sklearn.preprocessing import StandardScaler
 
 data = pd.read_csv("final-project/real_estate_data.csv")
 data['Residential Type'].replace(['Nan','Condo', 'Single Family','Two Family', 'Three Family', 'Four Family'],[0,1,2,3,4,5],inplace=True)
-data['Property Type'].replace(['Commercial','Residential', 'Vacant Land','Apartments','Industrial','Public Utility'],[0,1,2,3,4,5],inplace=True)
-
+data['Property Type'].replace(['Commercial','Residential', 'Vacant Land','Apartments','Industrial','Public Utility','Nan','Condo', 'Single Family','Two Family', 'Three Family', 'Four Family'],[0,1,2,3,4,5,6,7,8,9,10,11],inplace=True)
 
 x = data[["List Year", "Assessed Value", "Property Type", "Residential Type"]].values
 y = data[["Sale Amount"]].values 

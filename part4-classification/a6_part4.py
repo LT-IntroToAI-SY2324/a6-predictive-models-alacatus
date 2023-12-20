@@ -46,6 +46,11 @@ for index in range(len(x_test)):
     else:
         actual = "No result"
     print(" Predicted status: " + y_pred + " Actual status: " + actual)
+
+t1 = [[34, 56000, 1]]
+t = scalar.fit_transform(t1)
+t = modl.predict(t)
+
 # Step 8: Print out the actual ytest values and predicted y values
 # based on the xtest data
 ###^^^ add the x vals to print
